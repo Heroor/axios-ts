@@ -14,8 +14,8 @@ module.exports = {
   }, {}),
   output: {
     path: path.join(__dirname, '__build__'),
-    fileName: '[name].js',
-    publicPath: '/__build__'
+    filename: '[name].js',
+    publicPath: '/__build__/'
   },
   module: {
     rules: [{
@@ -35,12 +35,12 @@ module.exports = {
         }]
       }
     ],
-    resolve: {
-      extensions: ['.ts', '.tsx', '.js']
-    },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoEmitOnErrorsPlugin
-    ]
-  }
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js']
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ]
 }

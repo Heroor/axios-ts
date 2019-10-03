@@ -19,7 +19,7 @@ app.use(webpackDevMiddleware(complier, {
 app.use(webpackHotMiddleware(complier))
 app.use(express.static(__dirname))
 
-app.use(bodyParser.join())
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
@@ -27,6 +27,12 @@ app.use(bodyParser.urlencoded({
 const router = express.Router()
 
 router.get('/simple/get', (req, res) => {
+  res.json({
+    msg: 'hello world'
+  })
+})
+
+router.get('/base/get', (req, res) => {
   res.json({
     msg: 'hello world'
   })
