@@ -28,5 +28,56 @@ axios({
 axios({
   method: 'get',
   url: '/base/get',
-  params: '@:$, '
+  params: {
+    key: '@:$, '
+  }
+})
+
+axios({
+  method: 'get',
+  url: '/base/get',
+  params: {
+    key: null,
+    name: 'tom'
+  }
+})
+
+axios({
+  method: 'get',
+  url: '/base/get#hash',
+  params: {
+    name: 'tom'
+  }
+})
+
+axios({
+  method: 'get',
+  url: '/base/get?a=1',
+  params: {
+    name: 'tom'
+  }
+})
+
+axios({
+  method: 'get',
+  url: '/base/get?a=1&b=2',
+  params: {
+    name: 'tom'
+  }
+})
+
+axios({
+  method: 'get',
+  url: '/base/get#hash?a=1',
+  params: {
+    name: 'tom'
+  }
+})
+
+axios({
+  method: 'get',
+  url: '/base/get#hash?a=1&b=2',
+  params: {
+    name: 'tom'
+  }
 })
