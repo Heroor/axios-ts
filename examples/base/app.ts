@@ -20,7 +20,7 @@ axios({
   url: '/base/get',
   params: {
     a: [1, 2],
-    b: {name: 'tom', age: 12},
+    b: { name: 'tom', age: 12 },
     c: new Date()
   }
 })
@@ -80,4 +80,44 @@ axios({
   params: {
     name: 'tom'
   }
+})
+
+// ----------------------------------------------------- //
+
+axios({
+  method: 'post',
+  url: '/base/post',
+  data: {
+    name: 'tom',
+    age: 12
+  }
+})
+
+axios({
+  method: 'post',
+  url: '/base/post',
+  headers: {
+    'content-type': 'application/json',
+    Accept: 'application/json, text/plain, */*'
+  },
+  data: {
+    name: 'tom',
+    age: 12
+  }
+})
+
+const paramsString = 'q=URLUtils.searchParams&topic=api'
+const searchParams = new URLSearchParams(paramsString)
+
+axios({
+  method: 'post',
+  url: '/base/post',
+  data: searchParams
+})
+
+const arr = new Int32Array([21, 31])
+axios({
+  method: 'post',
+  url: '/base/buffer',
+  data: arr
 })
