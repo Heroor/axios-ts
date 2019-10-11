@@ -91,7 +91,21 @@ axios({
     name: 'tom',
     age: 12
   }
-})
+}).then(res => {
+  console.log('res: ', res)
+}).catch(console.error)
+
+axios({
+  method: 'post',
+  url: '/base/post',
+  responseType: 'json',
+  data: {
+    name: 'tom',
+    age: 12
+  }
+}).then(res => {
+  console.log('res: ', res)
+}).catch(console.error)
 
 axios({
   method: 'post',
