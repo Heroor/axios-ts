@@ -42,3 +42,33 @@ axios('/extend/post', {
     b: 2
   }
 })
+
+interface ResposeData<T = any> {
+  code: number
+  result: T
+  message: string
+}
+
+interface User {
+  name: string
+  age: number
+}
+
+function getUser<T>() {
+  return axios<ResposeData<T>>('/extend/user')
+    .then(res => res.data)
+    .catch(console.error)
+}
+
+async function test() {
+  const user = await getUser<User>()
+  if (user) {
+    console.log(user.result.name)
+    console.log(user.result.age)
+    console.log(user.message)
+    console.log(user.code)
+  }
+}
+
+test()
+  .catch(console.error)
