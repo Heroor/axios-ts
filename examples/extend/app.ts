@@ -27,3 +27,18 @@ axios.post('/extend/post', {
   a: 1,
   b: 2
 })
+
+axios('/extend/get', {
+  params: {
+    a: 1,
+    b: 2
+  }
+})
+
+axios('/extend/post', {
+  method: 'post',
+  data: {
+    a: 1,
+    b: 2
+  }
+})
