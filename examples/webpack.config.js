@@ -2,9 +2,13 @@ const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
 
+const excludes = ['routes']
+
 module.exports = {
   mode: 'development',
   entry: fs.readdirSync(__dirname).reduce((entries, dir) => {
+    if (excludes.includes(dir)) return entries
+
     const fullDir = path.join(__dirname, dir)
     const entry = path.join(fullDir, 'app.ts')
     if (fs.statSync(fullDir).isDirectory() && fs.existsSync(entry)) {
