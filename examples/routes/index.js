@@ -3,6 +3,7 @@ const base = require('./base')
 const error = require('./error')
 const extend = require('./extend')
 const interceptor = require('./interceptor')
+const config = require('./config')
 
 module.exports = [
   simple,
@@ -10,4 +11,5 @@ module.exports = [
   error,
   extend,
   interceptor,
+  config,
 ]
