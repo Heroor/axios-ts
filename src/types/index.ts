@@ -38,9 +38,7 @@ export interface AxiosResponse<T = any> {
   request: any
 }
 
-export interface AxiosPromise<T = any> extends Promise<AxiosResponse<T>> {
-
-}
+export interface AxiosPromise<T = any> extends Promise<AxiosResponse<T>> {}
 
 export interface AxiosError extends Error {
   isAxiosError: boolean
@@ -69,6 +67,10 @@ export interface Axios {
 export interface AxiosInstance extends Axios {
   <T = any>(config: AxiosRequestConfig): AxiosPromise<T>
   <T = any>(url: string, config?: AxiosRequestConfig): AxiosPromise<T>
+}
+
+export interface AxiosStatic extends AxiosInstance {
+  create(config?: AxiosRequestConfig): AxiosInstance
 }
 
 export interface AxiosInterceptorManager<T> {
