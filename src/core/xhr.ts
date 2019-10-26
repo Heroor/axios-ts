@@ -4,7 +4,7 @@ import { createError } from '../helpers/error'
 
 export default function xhr(config: AxiosRequestConfig): AxiosPromise {
   return new Promise((resolve, reject) => {
-    const { data = null, url, method = 'get', headers, responseType, timeout } = config
+    const { data = null, url, method = 'get', headers, responseType, timeout, cancleToken } = config
     const request = new XMLHttpRequest()
 
     // 设置response的type 处理json等数据类型
@@ -52,6 +52,12 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
       }
     })
 
+    if (cancleToken) {
+      cancleToken.promise.then(reason => {
+        request.abort()
+        reject(reason)
+      })
+    }
     request.send(data)
 
     function handleResponse (response: AxiosResponse): void {
