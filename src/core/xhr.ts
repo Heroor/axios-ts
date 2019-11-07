@@ -4,7 +4,7 @@ import { createError } from '../helpers/error'
 
 export default function xhr(config: AxiosRequestConfig): AxiosPromise {
   return new Promise((resolve, reject) => {
-    const { data = null, url, method = 'get', headers, responseType, timeout, cancleToken } = config
+    const { data = null, url, method = 'get', headers, responseType, timeout, cancleToken, withCredentials } = config
     const request = new XMLHttpRequest()
 
     // 设置response的type 处理json等数据类型
@@ -14,6 +14,12 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
     if (timeout) {
       request.timeout = timeout
     }
+
+    // 跨域请求
+    if (withCredentials) {
+      request.withCredentials = withCredentials
+    }
+
     request.open(method.toUpperCase(), url!, true)
     request.onreadystatechange = function handleLoad () {
       if (request.readyState !== 4) {

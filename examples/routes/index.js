@@ -5,6 +5,7 @@ const extend = require('./extend')
 const interceptor = require('./interceptor')
 const config = require('./config')
 const cancel = require('./cancel')
+const more = require('./more')
 
 module.exports = [
   simple,
@@ -14,4 +15,5 @@ module.exports = [
   interceptor,
   config,
   cancel,
+  more,
 ]

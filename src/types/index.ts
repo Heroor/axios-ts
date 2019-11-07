@@ -26,6 +26,7 @@ export interface AxiosRequestConfig {
   transformRequest?: AxiosTransformer | AxiosTransformer[]
   transformResponse?: AxiosTransformer | AxiosTransformer[]
   cancleToken?: CancelToken
+  withCredentials?: boolean
 
   [propName: string]: any
 }
