@@ -22,4 +22,13 @@ module.exports = function more(router) {
     }
   })
 
+  router.get('/more/304', (req, res) => {
+    res.status(304)
+    res.end()
+  })
+
+  router.get('/more/500', (req, res) => {
+    res.status(500)
+    res.end()
+  })
 }
