@@ -19,3 +19,25 @@ const instance = axios.create({
 instance.get('/more/xsrf').then(res => {
   console.log(res)
 })
+
+axios.post('/more/post', {
+  a: 123
+}, {
+  auth: {
+    username: 'tom',
+    password: '123qwe'
+  }
+}).then(res => {
+  console.log(res)
+})
+
+axios.post('/more/post', {
+  a: 123
+}, {
+  auth: {
+    username: 'jerry',
+    password: '123qwe'
+  }
+}).then(res => {
+  console.log(res)
+})
