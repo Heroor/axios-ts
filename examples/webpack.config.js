@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
 
-const excludes = ['routes']
+const excludes = ['routes', 'upload-file']
 
 module.exports = {
   mode: 'development',
@@ -37,6 +37,12 @@ module.exports = {
             transpileOnly: true
           }
         }]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader', 'css-loader'
+        ]
       }
     ],
   },

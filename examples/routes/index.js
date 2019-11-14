@@ -6,6 +6,7 @@ const interceptor = require('./interceptor')
 const config = require('./config')
 const cancel = require('./cancel')
 const more = require('./more')
+const upload = require('./upload')
 
 module.exports = [
   simple,
@@ -16,4 +17,5 @@ module.exports = [
   config,
   cancel,
   more,
+  upload,
 ]
